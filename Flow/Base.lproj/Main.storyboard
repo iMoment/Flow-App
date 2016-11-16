@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-pg-MPA" customClass="PushButtonView" customModule="Flow" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="383.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="O2b-ev-smC"/>
                                     <constraint firstAttribute="height" constant="100" id="l0d-3S-9FY"/>
@@ -35,7 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTJ-ad-sjd" customClass="PushButtonView" customModule="Flow" customModuleProvider="target">
-                                <rect key="frame" x="162.5" y="480" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="533.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3ga-qh-Msl"/>
                                     <constraint firstAttribute="height" constant="50" id="lJt-3c-inZ"/>
@@ -47,13 +47,23 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isAddButton" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZ5-WR-Gpg" customClass="CounterView" customModule="Flow" customModuleProvider="target">
+                                <rect key="frame" x="72.5" y="73.5" width="230" height="230"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="Z5u-PE-gZs"/>
+                                    <constraint firstAttribute="width" constant="230" id="vjg-dw-xvk"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qTJ-ad-sjd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Ai-Rj-HQc"/>
-                            <constraint firstItem="qTJ-ad-sjd" firstAttribute="top" secondItem="bu7-pg-MPA" secondAttribute="bottom" constant="96.5" id="HXb-gg-oTy"/>
+                            <constraint firstItem="qTJ-ad-sjd" firstAttribute="top" secondItem="bu7-pg-MPA" secondAttribute="bottom" constant="50" id="HXb-gg-oTy"/>
+                            <constraint firstItem="aZ5-WR-Gpg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q4a-RR-PKc"/>
                             <constraint firstItem="bu7-pg-MPA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eUh-bn-nDW"/>
-                            <constraint firstItem="bu7-pg-MPA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uEI-lR-L40"/>
+                            <constraint firstItem="bu7-pg-MPA" firstAttribute="top" secondItem="aZ5-WR-Gpg" secondAttribute="bottom" constant="80" id="mgS-5G-9ct"/>
+                            <constraint firstItem="bu7-pg-MPA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="uEI-lR-L40"/>
                         </constraints>
                     </view>
                 </viewController>
