@@ -68,8 +68,25 @@ class GraphView: UIView {
             let nextPoint = CGPoint(x: columnXPoint(i), y: columnYPoint(graphPoints[i]))
             graphPath.addLine(to: nextPoint)
         }
-
-        graphPath.stroke()
+        
+        // Create clipping path for the graph gradient
+        
+        // Save the state of the context
+        //CGContextSaveGState(context)
+        
+        // Make a copy of the path
+        let clippingPath = graphPath.copy() as! UIBezierPath
+        
+        // Add lines to the copied path to complete the clip area
+        clippingPath.addLine(to: CGPoint(x: columnXPoint(graphPoints.count - 1), y: height))
+        clippingPath.addLine(to: CGPoint(x: columnXPoint(0), y: height))
+        clippingPath.close()
+        clippingPath.addClip()
+        
+        //5 - check clipping path - temporary code
+        UIColor.green.setFill()
+        let rectPath = UIBezierPath(rect: self.bounds)
+        rectPath.fill()
     }
 }
 
