@@ -21,8 +21,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ys7-mO-lBv" userLabel="Container View">
+                                <rect key="frame" x="37" y="38" width="300" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZ5-WR-Gpg" customClass="CounterView" customModule="Flow" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="35" width="230" height="230"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znm-0y-8Fa">
+                                                <rect key="frame" x="93" y="93" width="44" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Znm-0y-8Fa" firstAttribute="centerY" secondItem="aZ5-WR-Gpg" secondAttribute="centerY" id="5B7-fW-wGA"/>
+                                            <constraint firstItem="Znm-0y-8Fa" firstAttribute="leading" secondItem="aZ5-WR-Gpg" secondAttribute="leading" constant="93" id="DDm-ep-KFO"/>
+                                            <constraint firstItem="Znm-0y-8Fa" firstAttribute="top" secondItem="aZ5-WR-Gpg" secondAttribute="top" constant="93" id="gIm-C1-Q9S"/>
+                                            <constraint firstItem="Znm-0y-8Fa" firstAttribute="centerX" secondItem="aZ5-WR-Gpg" secondAttribute="centerX" id="xYV-9j-v6S"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="counter">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="counterColor">
+                                                <color key="value" red="0.3411764705882353" green="0.85490196078431369" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                                <color key="value" red="0.13333333333333333" green="0.39215686274509803" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nn-Fl-jN7" customClass="GraphView" customModule="Flow" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="25" width="300" height="250"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="Cpv-UG-xHS"/>
+                                            <constraint firstAttribute="height" constant="250" id="Cv2-t3-6XM"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.9529411793" green="0.68627452850000004" blue="0.13333334029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="1jU-Fd-Ogb"/>
+                                    <constraint firstItem="aZ5-WR-Gpg" firstAttribute="centerX" secondItem="4nn-Fl-jN7" secondAttribute="centerX" id="7yO-E7-GLm"/>
+                                    <constraint firstAttribute="width" constant="300" id="Edw-Jk-Xg9"/>
+                                    <constraint firstItem="aZ5-WR-Gpg" firstAttribute="leading" secondItem="ys7-mO-lBv" secondAttribute="leading" constant="35" id="WE2-qB-zLC"/>
+                                    <constraint firstItem="aZ5-WR-Gpg" firstAttribute="top" secondItem="ys7-mO-lBv" secondAttribute="top" constant="35" id="bIR-g0-vQa"/>
+                                    <constraint firstItem="aZ5-WR-Gpg" firstAttribute="centerX" secondItem="ys7-mO-lBv" secondAttribute="centerX" id="cml-xZ-a4R"/>
+                                    <constraint firstItem="aZ5-WR-Gpg" firstAttribute="centerY" secondItem="4nn-Fl-jN7" secondAttribute="centerY" id="heR-X9-Tfk"/>
+                                    <constraint firstItem="aZ5-WR-Gpg" firstAttribute="centerY" secondItem="ys7-mO-lBv" secondAttribute="centerY" id="mhv-vv-vtJ"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HCK-ZB-0WD" appends="YES" id="umm-Sl-4uy"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-pg-MPA" customClass="PushButtonView" customModule="Flow" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="383.5" width="100" height="100"/>
+                                <rect key="frame" x="138" y="384" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="O2b-ev-smC"/>
                                     <constraint firstAttribute="height" constant="100" id="l0d-3S-9FY"/>
@@ -38,7 +95,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTJ-ad-sjd" customClass="PushButtonView" customModule="Flow" customModuleProvider="target">
-                                <rect key="frame" x="162.5" y="533.5" width="50" height="50"/>
+                                <rect key="frame" x="163" y="534" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3ga-qh-Msl"/>
                                     <constraint firstAttribute="height" constant="50" id="lJt-3c-inZ"/>
@@ -53,56 +110,30 @@
                                     <action selector="pushButtonPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qZ9-96-wDd"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZ5-WR-Gpg" customClass="CounterView" customModule="Flow" customModuleProvider="target">
-                                <rect key="frame" x="72.5" y="73.5" width="230" height="230"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Znm-0y-8Fa">
-                                        <rect key="frame" x="93" y="93" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="Gld-DY-kbF"/>
-                                            <constraint firstAttribute="height" constant="44" id="huo-Xu-cj1"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Znm-0y-8Fa" firstAttribute="centerX" secondItem="aZ5-WR-Gpg" secondAttribute="centerX" id="TV8-0K-av3"/>
-                                    <constraint firstAttribute="height" constant="230" id="Z5u-PE-gZs"/>
-                                    <constraint firstAttribute="width" constant="230" id="vjg-dw-xvk"/>
-                                    <constraint firstItem="Znm-0y-8Fa" firstAttribute="centerY" secondItem="aZ5-WR-Gpg" secondAttribute="centerY" id="y0o-Cc-YWs"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="counter">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="counterColor">
-                                        <color key="value" red="0.3411764705882353" green="0.85490196078431369" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
-                                        <color key="value" red="0.13333333333333333" green="0.39215686274509803" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qTJ-ad-sjd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Ai-Rj-HQc"/>
                             <constraint firstItem="qTJ-ad-sjd" firstAttribute="top" secondItem="bu7-pg-MPA" secondAttribute="bottom" constant="50" id="HXb-gg-oTy"/>
-                            <constraint firstItem="aZ5-WR-Gpg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q4a-RR-PKc"/>
+                            <constraint firstItem="ys7-mO-lBv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-145.5" id="UX6-LU-NB3"/>
+                            <constraint firstItem="ys7-mO-lBv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UkH-Qb-maV"/>
                             <constraint firstItem="bu7-pg-MPA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eUh-bn-nDW"/>
-                            <constraint firstItem="bu7-pg-MPA" firstAttribute="top" secondItem="aZ5-WR-Gpg" secondAttribute="bottom" constant="80" id="mgS-5G-9ct"/>
                             <constraint firstItem="bu7-pg-MPA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="uEI-lR-L40"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="ys7-mO-lBv" id="1A9-Ja-u7y"/>
                         <outlet property="counterLabel" destination="Znm-0y-8Fa" id="Pb9-EU-HgT"/>
                         <outlet property="counterView" destination="aZ5-WR-Gpg" id="fBH-QI-h56"/>
+                        <outlet property="graphView" destination="4nn-Fl-jN7" id="EAC-R1-qhp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HCK-ZB-0WD">
+                    <connections>
+                        <action selector="counterViewTap:" destination="BYZ-38-t0r" id="Uvz-ho-z2Q"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
