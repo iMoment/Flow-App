@@ -30,5 +30,20 @@ class CounterView: UIView {
         path.lineWidth = arcWidth
         counterColor.setStroke()
         path.stroke()
+        
+        let angleDifference: CGFloat = 2 * pi - startAngle + endAngle
+        let arcLengthPerGlass = angleDifference / CGFloat(numberOfGlasses)
+        let outlineEndAngle = arcLengthPerGlass * CGFloat(counter) + startAngle
+        
+        // Outer Arc
+        let outlinePath = UIBezierPath(arcCenter: center, radius: bounds.width/2 - 2.5, startAngle: startAngle, endAngle: outlineEndAngle, clockwise: true)
+        
+        // Inner Arc
+        outlinePath.addArc(withCenter: center, radius: bounds.width/2 - arcWidth + 2.5, startAngle: outlineEndAngle, endAngle: startAngle, clockwise: false)
+        
+        outlinePath.close()
+        outlineColor.setStroke()
+        outlinePath.lineWidth = 5.0
+        outlinePath.stroke()
     }
 }
