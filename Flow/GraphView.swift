@@ -72,7 +72,7 @@ class GraphView: UIView {
         // Create clipping path for the graph gradient
         
         // Save the state of the context
-        //CGContextSaveGState(context)
+        context!.saveGState()
         
         // Make a copy of the path
         let clippingPath = graphPath.copy() as! UIBezierPath
@@ -83,6 +83,8 @@ class GraphView: UIView {
         clippingPath.close()
         clippingPath.addClip()
         
+        context!.restoreGState()
+        
         let highestYPoint = columnYPoint(maxValue!)
         startPoint = CGPoint(x: margin, y: highestYPoint)
         endPoint = CGPoint(x: margin, y: self.bounds.height)
@@ -91,6 +93,39 @@ class GraphView: UIView {
 
         graphPath.lineWidth = 2.0
         graphPath.stroke()
+        
+        //Draw the circles on top of graph stroke
+        for i in 0..<graphPoints.count {
+            var point = CGPoint(x: columnXPoint(i), y: columnYPoint(graphPoints[i]))
+            point.x -= 5.0/2
+            point.y -= 5.0/2
+            
+            let circle = UIBezierPath(ovalIn:
+                CGRect(origin: point,
+                       size: CGSize(width: 5.0, height: 5.0)))
+            circle.fill()
+        }
+        
+        // TODO: Draw horizontal graph lines on the top of everything
+        var linePath = UIBezierPath()
+        
+        //top line
+        linePath.move(to: CGPoint(x: margin, y: topBorder))
+        linePath.addLine(to: CGPoint(x: width - margin, y: topBorder))
+        
+        //center line
+        linePath.move(to: CGPoint(x: margin, y: graphHeight/2 + topBorder))
+        linePath.addLine(to: CGPoint(x: width - margin, y: graphHeight/2 + topBorder))
+        
+        //bottom line
+        linePath.move(to: CGPoint(x: margin, y: height - bottomBorder))
+        linePath.addLine(to: CGPoint(x: width - margin, y: height - bottomBorder))
+        
+        let color = UIColor(white: 1.0, alpha: 0.3)
+        color.setStroke()
+        
+        linePath.lineWidth = 1.0
+        linePath.stroke()
     }
 }
 
