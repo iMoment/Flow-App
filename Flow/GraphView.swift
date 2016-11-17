@@ -83,14 +83,13 @@ class GraphView: UIView {
         clippingPath.close()
         clippingPath.addClip()
         
-        context!.restoreGState()
-        
         let highestYPoint = columnYPoint(maxValue!)
         startPoint = CGPoint(x: margin, y: highestYPoint)
         endPoint = CGPoint(x: margin, y: self.bounds.height)
         
         context?.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: [])
-
+        context!.restoreGState()
+        
         graphPath.lineWidth = 2.0
         graphPath.stroke()
         
