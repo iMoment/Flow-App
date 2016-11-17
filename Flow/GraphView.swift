@@ -32,8 +32,8 @@ class GraphView: UIView {
 
         let gradient = CGGradient(colorsSpace: colorSpace, colors: colors as CFArray, locations: colorLocations)
         
-        let startPoint = CGPoint.zero
-        let endPoint = CGPoint(x: 0, y: self.bounds.height)
+        var startPoint = CGPoint.zero
+        var endPoint = CGPoint(x: 0, y: self.bounds.height)
         context?.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: [])
         
         let margin: CGFloat = 20.0
@@ -83,10 +83,14 @@ class GraphView: UIView {
         clippingPath.close()
         clippingPath.addClip()
         
-        //5 - check clipping path - temporary code
-        UIColor.green.setFill()
-        let rectPath = UIBezierPath(rect: self.bounds)
-        rectPath.fill()
+        let highestYPoint = columnYPoint(maxValue!)
+        startPoint = CGPoint(x: margin, y: highestYPoint)
+        endPoint = CGPoint(x: margin, y: self.bounds.height)
+        
+        context?.drawLinearGradient(gradient!, start: startPoint, end: endPoint, options: [])
+
+        graphPath.lineWidth = 2.0
+        graphPath.stroke()
     }
 }
 
