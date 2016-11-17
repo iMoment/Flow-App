@@ -51,4 +51,84 @@ class ViewController: UIViewController {
         
         isGraphViewShowing = !isGraphViewShowing
     }
+    
+    func setupGraphDisplay() {
+        let numberOfDays: Int = 7
+        
+        // Replace last day with today's actual data
+        graphView.graphPoints[graphView.graphPoints.count - 1] = counterView.counter
+        
+        // Graph needs to be redrawn
+        graphView.setNeedsDisplay()
+        
+        maxLabel.text = "\(graphView.graphPoints.max())"
+        
+        // Average graphPoints
+        let average = graphView.graphPoints.reduce(0, +) / graphView.graphPoints.count
+        averageWaterDrunk.text = "\(average)"
+        
+        //set up labels
+        //day of week labels are set up in storyboard with tags
+        //today is last day of the array need to go backwards
+        
+        //4 - get today's day number
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar.current
+        let componentOptions: Calendar.Component = .weekday
+        
+        let components = calendar.component(componentOptions, from: Date())
+        var weekday = components
+        
+        let days = ["S", "S", "M", "T", "W", "T", "F"]
+        
+        for i in (1...days.count).reversed() {
+            if let labelView = graphView.viewWithTag(i) as? UILabel {
+                if weekday == 7 {
+                    weekday = 0
+                }
+//                labelView.text = days[weekday -= 1]
+            }
+        }
+        //5 - set up the day name labels with correct day
+//        for i in (1...days.count).reversed() {
+//            if let labelView = graphView.viewWithTag(i) as? UILabel {
+//                if weekday == 7 {
+//                    weekday = 0
+//                }
+//                labelView.text = days[weekday -= 1]
+//                if weekday < 0 {
+//                    weekday = days.count - 1
+//                }
+//            }
+//        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -106,7 +106,7 @@ class GraphView: UIView {
         }
         
         // TODO: Draw horizontal graph lines on the top of everything
-        var linePath = UIBezierPath()
+        let linePath = UIBezierPath()
         
         //top line
         linePath.move(to: CGPoint(x: margin, y: topBorder))
